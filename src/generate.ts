@@ -1,5 +1,7 @@
 import * as ts2zod from "ts-to-zod";
-import rdfjsDataModelDts from "./rdfjs/data-model.d.ts" with { type: "text" };
+import dataModelDts from "./rdfjs/data-model.d.ts" with {
+  type: "text",
+};
 
 if (import.meta.main) {
   await generateRdfjsSchema();
@@ -7,12 +9,11 @@ if (import.meta.main) {
 
 async function generateRdfjsSchema() {
   const { getZodSchemasFile } = ts2zod.generate({
-    sourceText: rdfjsDataModelDts,
+    sourceText: dataModelDts,
   });
-  const resultText = getZodSchemasFile("./data-model.d.ts");
-
+  const zodSchemasText = getZodSchemasFile("./data-model.d.ts");
   await Deno.writeTextFile(
-    new URL(import.meta.resolve("./rdfjs/data-model.ts")),
-    resultText,
+    "./src/rdfjs/data-model-schema.ts",
+    zodSchemasText,
   );
 }

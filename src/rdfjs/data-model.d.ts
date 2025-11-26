@@ -1,6 +1,5 @@
-// Copied
-// Date: 2025-11-25
-// Source:https://github.com/rdfjs/types/blob/1b1208dcc9389415b62717092c40d6b6954f4872/data-model.d.ts
+// Modified from source:
+// https://github.com/rdfjs/types/blob/1b1208dcc9389415b62717092c40d6b6954f4872/data-model.d.ts
 //
 
 /* Data Model Interfaces */
