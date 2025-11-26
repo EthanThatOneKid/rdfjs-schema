@@ -1,0 +1,27 @@
+{
+  "tasks": {
+    "fmt": "deno fmt",
+    "lint": "deno lint",
+    "check": "deno check",
+    "generate:ts2zod": "deno -A --unstable-raw-imports src/generate.ts",
+    "generate": {
+      "description": "Run all generate tasks",
+      "dependencies": [
+        "fmt",
+        "generate:ts2zod"
+      ]
+    },
+    "precommit": {
+      "description": "Run all pre-commit tasks",
+      "dependencies": [
+        "fmt",
+        "lint",
+        "check"
+      ]
+    }
+  },
+  "imports": {
+    "ts-to-zod": "npm:ts-to-zod@^5.1.0",
+    "zod": "npm:zod@^4.1.13"
+  }
+}
